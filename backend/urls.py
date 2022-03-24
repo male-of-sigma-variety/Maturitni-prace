@@ -18,7 +18,7 @@ from django import urls
 from django.contrib import admin
 from django.urls import path, include
 from reviews.views import food_list_view, review_view, home_view
-from register.views import register_view
+from register.views import register_view, invalid_form_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +26,6 @@ urlpatterns = [
     path('jidla/', food_list_view, name='food_list'),
     path('jidla/<int:food_id>', review_view, name='food_reviews'),
     path('registrace/', register_view, name="register"),
+    path('ohno/', invalid_form_view, name='invalid form'),
     path('', include("django.contrib.auth.urls")),
 ]
